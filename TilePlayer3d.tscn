@@ -1,0 +1,172 @@
+[gd_scene load_steps=9 format=3 uid="uid://0jr2vul2pkrh"]
+
+[ext_resource type="Script" path="res://TileBasePlayer3D.gd" id="1_jxejx"]
+[ext_resource type="Texture2D" uid="uid://cn4m4w8mtd30k" path="res://icon.svg" id="2_84cax"]
+
+[sub_resource type="Animation" id="Animation_nneq0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RayCast3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0556502, -0.301919, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RayCast3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-7.45058e-09, 1.5708, 1.5708)]
+}
+
+[sub_resource type="Animation" id="Animation_e0vhy"]
+resource_name = "WalkDown"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RayCast3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0556502, -0.301919, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RayCast3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-7.45079e-09, 1.63354, 1.5708)]
+}
+
+[sub_resource type="Animation" id="Animation_6ymmv"]
+resource_name = "WalkLeft"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RayCast3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.26822, -0.301919, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RayCast3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-7.45057e-09, 1.90739e-07, 1.5708)]
+}
+
+[sub_resource type="Animation" id="Animation_l34bl"]
+resource_name = "WalkRight"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RayCast3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-7.45057e-09, -3.14159, 1.5708)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RayCast3D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.74614, -0.301919, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_444t4"]
+resource_name = "WalkUp"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RayCast3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.0556502, -0.301919, -1.76385)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RayCast3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-7.45058e-09, -1.57079, 1.5708)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wovg7"]
+_data = {
+"RESET": SubResource("Animation_nneq0"),
+"WalkDown": SubResource("Animation_e0vhy"),
+"WalkLeft": SubResource("Animation_6ymmv"),
+"WalkRight": SubResource("Animation_l34bl"),
+"WalkUp": SubResource("Animation_444t4")
+}
+
+[node name="Player3D" type="Area3D"]
+script = ExtResource("1_jxejx")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.06066, 1.06066, 0, -1.06066, 1.06066, 0, 0, 0)
+texture = ExtResource("2_84cax")
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 3, 3)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wovg7")
+}
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(-2.97499e-07, 3.61999e-06, 40, 40, -3.61999e-06, 2.98023e-07, 0.0001448, 1, -0.0001448, 0.0556502, -0.301919, 1)
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]

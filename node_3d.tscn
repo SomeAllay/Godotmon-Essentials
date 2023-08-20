@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://hnfom0ao82sh"]
+
+[ext_resource type="ArrayMesh" uid="uid://fsdalx7p0jf1" path="res://Assets/Cliff.obj" id="1_scogc"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_78oky"]
+points = PackedVector3Array(0.5, 1, 0.5, 0.5, 1, -0.5, -0.312549, 1, 0.5, 0.5, 0, 0.5, 0.5, 0, -0.5, -0.312549, 1, -0.5, -0.5, 0.562451, 0.5, -0.5, 0, 0.5, -0.5, 0, -0.5, -0.5, 0.562451, -0.5)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_scogc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D"]
+shape = SubResource("ConvexPolygonShape3D_78oky")

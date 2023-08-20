@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://cs4dyvccuyqx7"]
+
+[ext_resource type="Texture2D" uid="uid://dmp2k77fpdwvd" path="res://Assets/IMG_4937.PNG" id="1_4dd0u"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fx82b"]
+data = PackedVector3Array(-1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1)
+backface_collision = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ts1pb"]
+transparency = 2
+alpha_scissor_threshold = 0.5
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("1_4dd0u")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_c2lwi"]
+size = Vector2(4, 4)
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.52282, 0)
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(8, 0, 0, 0, 5.65685, 5.65685, 0, -5.65685, 5.65685, 0, 0, 0)
+cast_shadow = 2
+texture_filter = 0
+texture = ExtResource("1_4dd0u")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0.772994)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.19209e-07)
+shape = SubResource("ConcavePolygonShape3D_fx82b")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1.19209e-07, 1, -8.14907e-10, 0.999993, 0, -0.00383963, -0.00383964, -1.16415e-10, -0.999993, 0, 0, 1.19209e-07)
+shape = SubResource("ConcavePolygonShape3D_fx82b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, -0.2927, 0.260349)
+material_override = SubResource("StandardMaterial3D_ts1pb")
+cast_shadow = 3
+mesh = SubResource("PlaneMesh_c2lwi")
