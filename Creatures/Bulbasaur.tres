@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://blx00y6s50u1s"]
+
+[ext_resource type="Script" path="res://Globals/PokemonBase.gd" id="1_1serc"]
+[ext_resource type="Texture2D" uid="uid://gcpb0p3txsmi" path="res://Assets/Game Boy Advance - Pokemon FireRed LeafGreen - Pokemon 1st 3rd Generation.png" id="1_nwhyb"]
+
+[resource]
+script = ExtResource("1_1serc")
+Name = "Bulbasaur"
+Sprite = ExtResource("1_nwhyb")
+Speed = 32
+Defense = 20
+SpecialDef = 120
+SpecialAtk = 20
+HP = 100

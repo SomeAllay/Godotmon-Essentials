@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dctfof8uquabf"
+path="res://.godot/imported/CliffCorner.obj-59a83d06c30012b51c76c910281b3d08.mesh"
+
+[deps]
+
+files=["res://.godot/imported/CliffCorner.obj-59a83d06c30012b51c76c910281b3d08.mesh"]
+
+source_file="res://Assets/CliffCorner.obj"
+dest_files=["res://.godot/imported/CliffCorner.obj-59a83d06c30012b51c76c910281b3d08.mesh", "res://.godot/imported/CliffCorner.obj-59a83d06c30012b51c76c910281b3d08.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
